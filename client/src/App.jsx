@@ -5,7 +5,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/portfolio-site/" element={<Home />} />
         <Route path="/example" element={<Example />} />
       </Routes>
     </BrowserRouter>
