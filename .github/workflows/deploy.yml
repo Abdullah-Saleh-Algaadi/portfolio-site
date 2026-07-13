@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./client # توجيه الأوامر لتُنفذ داخل مجلد client
+        working-directory: .
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -38,7 +38,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./client/dist # المسار الذي يتم فيه حفظ ملفات البناء النهائية
+          path: ./dist
 
   deploy:
     environment:
