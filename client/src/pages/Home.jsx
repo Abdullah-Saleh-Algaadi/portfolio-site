@@ -12,7 +12,7 @@ export default function Home() {
     <>
       <Header />
       <main>
-        <section className="mt-12">
+        <section id="home">
           <HeroSection />
         </section>
 

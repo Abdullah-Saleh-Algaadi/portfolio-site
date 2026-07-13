@@ -12,10 +12,10 @@ import {
 
 export default function Footer() {
   const navLinks = [
-    { name: "Home", path: "/" },
-    { name: "About", path: "/about" },
-    { name: "Projects", path: "/projects" },
-    { name: "Contact", path: "/contact" },
+    { name: "Home", path: "#about" },
+    { name: "About", path: "#about" },
+    { name: "Projects", path: "#projects" },
+    { name: "Contact", path: "#contact" },
   ];
 
   const socialLink = [
@@ -27,77 +27,81 @@ export default function Footer() {
     { icon: FaWhatsapp, link: "https://wa.me/967730541213" },
   ];
 
-
-const contacts = [
-  { icon: FaEnvelope, text: "abdullahsalehali46@gmail.com" },
-  { icon: FaWhatsapp, text: "+967730541213" },
-  { icon: FaPhone, text: "+967730541213" },
-];
-
+  const contacts = [
+    { icon: FaEnvelope, text: "abdullahsalehali46@gmail.com" },
+    { icon: FaWhatsapp, text: "+967730541213" },
+    { icon: FaPhone, text: "+967730541213" },
+  ];
 
   return (
-    <footer className="bg-gray-900 text-gray-300 py-10 ">
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10">
+    <footer className="relative bg-slate-50 text-slate-600 py-16 border-t border-slate-200 overflow-hidden">
+      <div className="max-w-6xl mx-auto px-6 relative z-10 grid grid-cols-1 md:grid-cols-3 gap-12">
         {/* Personal Message */}
-        <div className="text-center md:text-left">
-          <h2 className="text-lg font-semibold mb-4">
-            Built with ❤️ using React & Tailwind by Abdullah
-          </h2>
+        <div className="text-center md:text-left space-y-4">
+          <span className="text-xl font-bold tracking-tight text-slate-900">
+            Abdullah.
+          </span>
+          <p className="text-sm text-slate-500 leading-relaxed max-w-xs mx-auto md:mx-0">
+            Designing and developing fast, responsive, and aesthetically outstanding modern web solutions.
+          </p>
         </div>
 
         {/* Navigation Links */}
-        <div>
-          <h2 className="text-lg font-semibold mb-4">Links</h2>
-          <ul className="space-y-2">
+        <div className="text-center md:text-left">
+          <h2 className="text-sm font-semibold tracking-wider text-slate-900 uppercase mb-4">Navigation</h2>
+          <ul className="space-y-2.5">
             {navLinks.map((link) => (
-              <li key={link.path}>
-                <Link
-                  to={link.path}
-                  className="hover:text-teal-400 transition duration-200"
+              <li key={link.name}>
+                <a
+                  href={link.path}
+                  className="text-sm hover:text-teal-600 transition-colors duration-200"
                 >
                   {link.name}
-                </Link>
+                </a>
               </li>
             ))}
           </ul>
         </div>
 
         {/* Contact Info */}
-        <div className="space-y-4">
-          <h2 className="text-lg font-semibold mb-4">Direct Contact</h2>
-          {contacts.map((contact, index) => (
-            <div
-              key={index}
-              className="flex items-center gap-3 text-gray-300 hover:text-teal-400 transition duration-200"
-            >
-              <div className="text-teal-400 text-xl">
-                <contact.icon />
+        <div className="space-y-4 text-center md:text-left">
+          <h2 className="text-sm font-semibold tracking-wider text-slate-900 uppercase mb-4">Direct Contact</h2>
+          <div className="space-y-3 flex flex-col items-center md:items-start">
+            {contacts.map((contact, index) => (
+              <div
+                key={index}
+                className="flex items-center gap-3 text-slate-500 hover:text-teal-600 transition-colors duration-200 group"
+              >
+                <div className="text-teal-500 text-lg group-hover:scale-110 transition-transform duration-200">
+                  <contact.icon />
+                </div>
+                <p className="text-sm">{contact.text}</p>
               </div>
-              <p className="text-sm">{contact.text}</p>
-            </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div className="max-w-6xl mx-auto px-6 mt-12 pt-8 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-6 relative z-10">
+        {/* Copyright */}
+        <p className="text-xs text-slate-500 order-2 sm:order-1">
+          © {new Date().getFullYear()} Abdullah. All rights reserved.
+        </p>
+
+        {/* Social Icons */}
+        <div className="flex gap-4 order-1 sm:order-2">
+          {socialLink.map((link, idx) => (
+            <a
+              key={idx}
+              href={link.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-9 h-9 rounded-full bg-white border border-slate-200 text-slate-600 flex items-center justify-center hover:bg-slate-900 hover:text-white hover:border-transparent hover:scale-110 transition-all duration-300 shadow-sm"
+            >
+              <link.icon className="text-base" />
+            </a>
           ))}
         </div>
-
-     
-      </div>
-
-      {/* Social Icons */}
-      <div className="mt-10 flex justify-center gap-6 text-teal-400 text-xl">
-        {socialLink.map((link) => (
-          <a
-            key={link.link}
-            href={link.link}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <link.icon />
-          </a>
-        ))}
-      </div>
-      <div>
-        <p className="text-sm  flex justify-center mt-10 text-gray-400">
-          © 2025 Abdullah. All rights reserved.
-        </p>
       </div>
     </footer>
   );
