@@ -1,4 +1,4 @@
-import MyImage from "../../assets/MyImage2.png";
+import MyImage from "../../assets/Image-44.png";
 import Button from "../ui/Button";
 
 export default function HeroSection() {
